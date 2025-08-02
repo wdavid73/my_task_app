@@ -43,9 +43,7 @@ class LightTheme {
         surfaceTintColor: ColorTheme.primaryColor,
         iconTheme: baseIconTheme.copyWith(color: ColorTheme.secondaryColor),
       ),
-      cardTheme: _baseCardTheme.copyWith(
-        color: ColorTheme.navigationBackgroundColorLight,
-      ),
+      cardTheme: _baseCardTheme.copyWith(color: ColorTheme.white),
       dividerTheme: _baseDividerTheme,
       chipTheme: _baseChipTheme.copyWith(
         labelStyle: baseTextTheme.labelSmall?.copyWith(
