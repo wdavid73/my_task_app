@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_tasks_app/config/theme/theme.dart';
 
 /// A customizable text form field widget.
 ///
@@ -62,7 +63,7 @@ class CustomTextFormField extends StatelessWidget {
 
   final Key? textFormFieldKey;
 
-  final int? maxLines;
+  final int maxLines;
 
   /// Creates a [CustomTextFormField].
   const CustomTextFormField({
@@ -86,7 +87,7 @@ class CustomTextFormField extends StatelessWidget {
     this.initialValue,
     this.helperText,
     this.textFormFieldKey,
-    this.maxLines,
+    this.maxLines = 1,
   });
 
   /// Returns true if the text field is a password field.
@@ -122,6 +123,7 @@ class CustomTextFormField extends StatelessWidget {
                       : null,
                   icon: Icon(
                     obscureText ? Icons.visibility : Icons.visibility_off,
+                    color: ColorTheme.primaryColor,
                   ),
                 )
               : null,
