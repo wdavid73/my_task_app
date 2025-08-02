@@ -89,7 +89,7 @@ mixin AuthBlocHandler on Bloc<AuthEvent, AuthState> {
       state.copyWith(
         isCreating: false,
         authStatus: AuthStatus.authenticated,
-        user: authResponse.user,
+        user: authResponse,
         errorMessage: '',
       ),
     );

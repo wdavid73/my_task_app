@@ -40,8 +40,6 @@ class _TaskListState extends State<TaskList> {
     );
   }
 
-  void _editTask() {}
-
   void _deleteTask(int index) {
     getIt.get<TaskBloc>().deleteTask(index);
     CustomSnackBar.showSnackBar(
@@ -72,10 +70,6 @@ class _TaskListState extends State<TaskList> {
                 onOptionSelected: (action) {
                   if (action == 'promote_to_complete') {
                     _promoteTaskToComplete(index);
-                    return;
-                  }
-                  if (action == 'edit') {
-                    _editTask();
                     return;
                   }
 

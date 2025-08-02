@@ -31,13 +31,6 @@ class CustomPopupMenu extends StatelessWidget {
             child: const CustomMenuItem(icon: Icons.check, title: 'Completar'),
           ),
 
-        if (task.status == TaskStatus.pending)
-          PopupMenuItem(
-            onTap: () => onTap('edit'),
-            padding: EdgeInsets.zero,
-            child: const CustomMenuItem(icon: Icons.edit, title: 'Editar'),
-          ),
-
         PopupMenuItem(
           onTap: () => onTap('delete'),
           padding: EdgeInsets.zero,
