@@ -1,37 +1,46 @@
-enum TaskStatus {
-  highPriority,
-  mediumPriority,
-  lowPriority,
-  inProgress,
-  pending,
-  completed,
-  postponed,
+enum TaskTags {
+  work,
+  study,
+  personal,
+  home,
+  health,
+  finance,
+  shopping,
+  project,
+  freelance,
+  urgent,
 }
 
-extension TaskStatusExtension on TaskStatus {
+extension TaskStatusExtension on TaskTags {
   String get key {
     switch (this) {
-      case TaskStatus.highPriority:
-        return 'highPriority';
-      case TaskStatus.mediumPriority:
-        return 'mediumPriority';
-      case TaskStatus.lowPriority:
-        return 'lowPriority';
-      case TaskStatus.inProgress:
-        return 'inProgress';
-      case TaskStatus.pending:
-        return 'pending';
-      case TaskStatus.completed:
-        return 'completed';
-      case TaskStatus.postponed:
-        return 'postponed';
+      case TaskTags.work:
+        return 'work';
+      case TaskTags.study:
+        return 'study';
+      case TaskTags.personal:
+        return 'personal';
+      case TaskTags.home:
+        return 'home';
+      case TaskTags.health:
+        return 'health';
+      case TaskTags.finance:
+        return 'finance';
+      case TaskTags.shopping:
+        return 'shopping';
+      case TaskTags.freelance:
+        return 'freelance';
+      case TaskTags.urgent:
+        return 'urgent';
+      case TaskTags.project:
+        return 'project';
     }
   }
 
-  static TaskStatus? fromLabel(String label) {
-    return TaskStatus.values.firstWhere(
+  static TaskTags? fromLabel(String label) {
+    return TaskTags.values.firstWhere(
       (status) => status.key == label,
-      orElse: () => TaskStatus.pending,
+      orElse: () => TaskTags.personal,
     );
   }
 

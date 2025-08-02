@@ -167,7 +167,9 @@ class DarkTheme {
           ColorTheme.secondaryColor,
           ColorTheme.textSecondary,
         ),
-        trackOutlineColor: WidgetStatePropertyAll<Color>(Colors.transparent),
+        trackOutlineColor: const WidgetStatePropertyAll<Color>(
+          Colors.transparent,
+        ),
       ),
       radioTheme: _baseRadioTheme.copyWith(
         fillColor: WidgetStatePropertyAll<Color>(ColorTheme.lightPrimaryColor),

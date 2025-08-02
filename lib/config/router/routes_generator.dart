@@ -15,7 +15,7 @@ class AppRoutes {
         path: '/task/:id',
         name: 'task',
         builder: (context, state) =>
-            TaskScreen(taskId: state.pathParameters['id'] ?? 'no-id'),
+            TaskScreen(taskIndex: state.pathParameters['id'] ?? 'no-id'),
       ),
     ];
   }
