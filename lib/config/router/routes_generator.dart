@@ -18,7 +18,7 @@ class AppRoutes {
       GoRoute(
         path: RouteConstants.home,
         name: 'home',
-        builder: (_, __) => const MyHomePage(title: 'My Home Page'),
+        builder: (_, __) => const MyHomePage(title: 'Mis Tareas'),
       ),
 
       GoRoute(

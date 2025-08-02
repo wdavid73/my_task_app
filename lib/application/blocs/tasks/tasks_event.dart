@@ -19,3 +19,8 @@ class PromoteToCompleteTaskEvent extends TaskEvent {
   final int index;
   PromoteToCompleteTaskEvent({required this.index});
 }
+
+class FilterTask extends TaskEvent {
+  final TaskFilter filter;
+  FilterTask({this.filter = TaskFilter.none});
+}

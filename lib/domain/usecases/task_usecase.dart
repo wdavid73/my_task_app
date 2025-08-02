@@ -1,6 +1,7 @@
 import 'package:injectable/injectable.dart';
 import 'package:my_tasks_app/data/models/task_model.dart';
 import 'package:my_tasks_app/domain/repositories/task_repository.dart';
+import 'package:my_tasks_app/utils/task_filter.dart';
 
 @lazySingleton
 class TaskUsecase {
@@ -8,8 +9,10 @@ class TaskUsecase {
 
   TaskUsecase(this.repository);
 
-  Future<List<TaskModel>> fetchTasks() async {
-    return repository.getTasks();
+  Future<List<TaskModel>> fetchTasks({
+    TaskFilter filter = TaskFilter.none,
+  }) async {
+    return repository.getTasks(filter: filter);
   }
 
   Future<void> createTask(TaskModel task) async {

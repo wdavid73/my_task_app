@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:my_tasks_app/data/models/task_model.dart';
 import 'package:my_tasks_app/domain/usecases/task_usecase.dart';
+import 'package:my_tasks_app/utils/task_filter.dart';
 
 part 'tasks_event.dart';
 part 'tasks_state.dart';
@@ -57,6 +58,17 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
         emit(state);
       }
     });
+
+    on<FilterTask>((event, emit) async {
+      try {
+        emit(state.copyWith(isLoading: true, filter: event.filter));
+        final response = await useCase.fetchTasks(filter: event.filter);
+        emit(state.copyWith(isLoading: false, tasks: response));
+      } catch (e) {
+        debugPrint('error: $e');
+        emit(state.copyWith(filter: TaskFilter.none));
+      }
+    });
   }
   void getTask() {
     add(GetTasksEvent());
@@ -72,5 +84,9 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
 
   void promoteTask(int index) {
     add(PromoteToCompleteTaskEvent(index: index));
+  }
+
+  void filterTasks(TaskFilter filter) {
+    add(FilterTask(filter: filter));
   }
 }

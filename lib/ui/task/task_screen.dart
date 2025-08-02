@@ -57,7 +57,7 @@ class _FormState extends State<_Form> {
   void _listener(BuildContext context, TaskState state) {
     if (state.createStatus == CreateStatus.success) {
       if (context.canPop()) {
-        context.pop();
+        context.pop(true);
       }
     }
 

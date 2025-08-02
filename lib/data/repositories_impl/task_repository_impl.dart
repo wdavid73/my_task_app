@@ -2,6 +2,7 @@ import 'package:injectable/injectable.dart';
 import 'package:my_tasks_app/data/datasources/in_memory_task_datasource.dart';
 import 'package:my_tasks_app/data/models/task_model.dart';
 import 'package:my_tasks_app/domain/repositories/task_repository.dart';
+import 'package:my_tasks_app/utils/task_filter.dart';
 
 @LazySingleton(as: TaskRepository)
 class TaskRepositoryImpl implements TaskRepository {
@@ -20,11 +21,6 @@ class TaskRepositoryImpl implements TaskRepository {
   }
 
   @override
-  Future<List<TaskModel>> getTasks() async {
-    return dataSource.getTasks();
-  }
-
-  @override
   Future<void> promoteTask(int id) async {
     return dataSource.promoteTask(id);
   }
@@ -32,5 +28,10 @@ class TaskRepositoryImpl implements TaskRepository {
   @override
   Future<void> updateTask(TaskModel task) async {
     return dataSource.updateTask(task);
+  }
+
+  @override
+  Future<List<TaskModel>> getTasks({TaskFilter filter = TaskFilter.none}) {
+    return dataSource.getTasks(filter: filter);
   }
 }

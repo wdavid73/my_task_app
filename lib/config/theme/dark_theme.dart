@@ -105,6 +105,7 @@ class DarkTheme {
 
     return ThemeData(
       useMaterial3: true,
+
       brightness: Brightness.dark,
       colorScheme: darkColorScheme,
       textTheme: baseTextThemeDark.apply(fontSizeFactor: fontSizeFactor),
@@ -114,11 +115,8 @@ class DarkTheme {
       ),
       appBarTheme: _baseAppBarTheme,
       cardTheme: _baseCardTheme.copyWith(
-        color: ColorTheme.backgroundColorDark,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
-          side: BorderSide(color: ColorTheme.white, width: 2),
-        ),
+        color: ColorTheme.navigationBackgroundColorDark,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       ),
       dividerTheme: _baseDividerTheme,
       chipTheme: _baseChipTheme.copyWith(
@@ -156,6 +154,7 @@ class DarkTheme {
       ),
       snackBarTheme: _baseSnackBarTheme.copyWith(
         contentTextStyle: baseTextThemeDark.bodyLarge,
+        backgroundColor: ColorTheme.navigationBackgroundColorDark,
       ),
       progressIndicatorTheme: _baseProgressIndicatorTheme,
       bottomSheetTheme: _baseBottomSheetTheme.copyWith(
